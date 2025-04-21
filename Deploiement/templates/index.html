@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prédiction des Coûts d'Assurance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+
+
+        <div class="steps-indicator">
+            <div class="step active" id="step-info">
+                <div class="step-number">1</div>
+                <div class="step-text">Vos informations</div>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step" id="step-result">
+                <div class="step-number">2</div>
+                <div class="step-text">Votre estimation</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="form-container">
+                <h2><i class="fas fa-user-edit"></i> Entrez vos informations</h2>
+                
+                <form id="prediction-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="age"><i class="fas fa-birthday-cake"></i> Âge</label>
+                            <input type="number" id="age" min="18" max="100" required placeholder="Entre 18 et 100">
+                            <div class="tooltip" id="age-tooltip">
+                                <i class="fas fa-info-circle"></i>
+                                <span class="tooltip-text">Votre âge en années</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="sex"><i class="fas fa-venus-mars"></i> Sexe</label>
+                            <select id="sex" required>
+                                <option value="" disabled selected>Choisissez</option>
+                                <option value="male">Homme</option>
+                                <option value="female">Femme</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group bmi-group">
+                        <label for="bmi"><i class="fas fa-weight"></i> Indice de Masse Corporelle (IMC)</label>
+                        <div class="input-with-button">
+                            <input type="number" id="bmi" min="10" max="50" step="0.1" required placeholder="Entre 10 et 50">
+                            <button type="button" id="bmi-calculator-btn" class="icon-button">
+                                <i class="fas fa-calculator"></i> Calculer mon IMC
+                            </button>
+                        </div>
+                        <div class="tooltip" id="bmi-tooltip">
+                            <i class="fas fa-info-circle"></i>
+                            <span class="tooltip-text">L'IMC normal se situe entre 18.5 et 25</span>
+                        </div>
+                    </div>
+                    
+                    <div id="bmi-calculator" class="hidden">
+                        <h3><i class="fas fa-calculator"></i> Calculateur d'IMC</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="weight"><i class="fas fa-balance-scale"></i> Poids (kg)</label>
+                                <input type="number" id="weight" min="30" max="200" step="0.1" placeholder="Ex: 70">
+                            </div>
+                            <div class="form-group">
+                                <label for="height"><i class="fas fa-ruler-vertical"></i> Taille (cm)</label>
+                                <input type="number" id="height" min="100" max="250" placeholder="Ex: 170">
+                            </div>
+                        </div>
+                        <button type="button" id="calculate-bmi" class="btn-action">
+                            <i class="fas fa-check"></i> Calculer et utiliser
+                        </button>
+                        <div id="bmi-result" class="hidden">
+                            <div class="bmi-meter">
+                                <div class="bmi-scale">
+                                    <div class="bmi-category" style="background-color: #4cc9f0;">Insuffisant</div>
+                                    <div class="bmi-category" style="background-color: #4361ee;">Normal</div>
+                                    <div class="bmi-category" style="background-color: #3f37c9;">Surpoids</div>
+                                    <div class="bmi-category" style="background-color: #f72585;">Obésité</div>
+                                </div>
+                                <div id="bmi-indicator"></div>
+                            </div>
+                            <div id="bmi-value">Votre IMC: <span>0</span></div>
+                            <div id="bmi-status">Classification: <span>-</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="children"><i class="fas fa-child"></i> Enfants à charge</label>
+                            <input type="number" id="children" min="0" max="10" required placeholder="Entre 0 et 10">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="smoker"><i class="fas fa-smoking"></i> Fumeur</label>
+                            <select id="smoker" required>
+                                <option value="" disabled selected>Choisissez</option>
+                                <option value="no">Non</option>
+                                <option value="yes">Oui</option>
+                            </select>
+                            <div class="tooltip">
+                                <i class="fas fa-info-circle"></i>
+                                <span class="tooltip-text">Le tabagisme augmente significativement les coûts d'assurance</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="region"><i class="fas fa-map-marker-alt"></i> Région</label>
+                        <select id="region" required>
+                            <option value="" disabled selected>Choisissez votre région</option>
+                            <option value="northeast">Nord-Est</option>
+                            <option value="northwest">Nord-Ouest</option>
+                            <option value="southeast">Sud-Est</option>
+                            <option value="southwest">Sud-Ouest</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-calculator"></i> Calculer mon estimation
+                    </button>
+                </form>
+            </div>
+            
+            <div class="result-container hidden" id="result-container">
+                <h2><i class="fas fa-chart-line"></i> Votre Estimation Personnalisée</h2>
+                
+                <div class="result">
+                    <div class="result-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <div class="result-value" id="prediction-value">$0.00</div>
+                    <p>Coût annuel estimé de votre assurance santé</p>
+                </div>
+                
+                <div class="factors-container">
+                    <h3><i class="fas fa-info-circle"></i> Facteurs influençant votre estimation</h3>
+                    <div class="factors">
+                        <div class="factor">
+                            <div class="factor-icon">
+                                <i class="fas fa-smoking"></i>
+                            </div>
+                            <div class="factor-text">
+                                <h4>Statut fumeur</h4>
+                                <p>Un fumeur paie en moyenne 2 à 3 fois plus cher qu'un non-fumeur</p>
+                            </div>
+                        </div>
+                        <div class="factor">
+                            <div class="factor-icon">
+                                <i class="fas fa-birthday-cake"></i>
+                            </div>
+                            <div class="factor-text">
+                                <h4>Âge</h4>
+                                <p>Les coûts augmentent généralement avec l'âge</p>
+                            </div>
+                        </div>
+                        <div class="factor">
+                            <div class="factor-icon">
+                                <i class="fas fa-weight"></i>
+                            </div>
+                            <div class="factor-text">
+                                <h4>IMC</h4>
+                                <p>Un IMC élevé est associé à des coûts plus élevés</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="actions">
+                    <button id="new-prediction-btn" class="btn-secondary">
+                        <i class="fas fa-redo"></i> Nouvelle estimation
+                    </button>
+                    <button id="share-btn" class="btn-action">
+                        <i class="fas fa-share-alt"></i> Partager
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="loading-overlay" id="loading-overlay">
+            <div class="spinner">
+                <div class="dot1"></div>
+                <div class="dot2"></div>
+            </div>
+            <p>Calcul en cours...</p>
+        </div>
+
+        <div class="tooltip-container" id="global-tooltip">
+            <span id="tooltip-content"></span>
+        </div>
+    </div>
+
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

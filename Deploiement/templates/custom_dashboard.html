@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord de monitoring - Prédicteur de coûts d'assurance</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        :root {
+            --primary: {{ style.colors.primary }};
+            --secondary: {{ style.colors.secondary }};
+            --success: {{ style.colors.success }};
+            --danger: {{ style.colors.danger }};
+            --warning: {{ style.colors.warning }};
+            --info: {{ style.colors.info }};
+        }
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .dashboard-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .stat-card {
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            background-color: white;
+            height: 100%;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            border-radius: 10px 10px 0 0 !important;
+            font-weight: 600;
+        }
+        .card-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+        .card-subtitle {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+        .primary-bg {
+            background-color: var(--primary);
+            color: white;
+        }
+        .secondary-bg {
+            background-color: var(--secondary);
+            color: white;
+        }
+        .success-bg {
+            background-color: var(--success);
+            color: white;
+        }
+        .info-bg {
+            background-color: var(--info);
+            color: white;
+        }
+        .warning-bg {
+            background-color: var(--warning);
+            color: white;
+        }
+        .spinner-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .refresh-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+        .table-responsive {
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+            padding: 48px 0 0;
+            box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+            background-color: white;
+        }
+        .sidebar-sticky {
+            position: relative;
+            top: 0;
+            height: calc(100vh - 48px);
+            padding-top: .5rem;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        .nav-link {
+            color: #333;
+            font-weight: 500;
+        }
+        .nav-link.active {
+            color: var(--primary);
+        }
+        .nav-link:hover {
+            color: var(--secondary);
+        }
+        .main-content {
+            margin-left: 240px;
+            padding: 2rem;
+        }
+        @media (max-width: 767.98px) {
+            .sidebar {
+                width: 100%;
+                position: relative;
+                padding: 0;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="loading" class="spinner-overlay d-none">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+            <span class="visually-hidden">Chargement...</span>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow dashboard-header">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">
+            <i class="bi bi-speedometer2 me-2"></i>
+            Monitoring Professionnel
+        </a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" 
+                data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="w-100"></div>
+        <div class="navbar-nav">
+            <div class="nav-item text-nowrap">
+                <a class="nav-link px-3" href="/">
+                    <i class="bi bi-house-door me-1"></i>
+                    Retour à l'application
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="sidebar-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#dashboard-section">
+                                <i class="bi bi-graph-up me-2"></i>
+                                Tableau de bord
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#performance-section">
+                                <i class="bi bi-speedometer2 me-2"></i>
+                                Performance
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#prediction-section">
+                                <i class="bi bi-cpu me-2"></i>
+                                Prédictions
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard">
+                                <i class="bi bi-tools me-2"></i>
+                                Dashboard avancé
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/metrics">
+                                <i class="bi bi-bar-chart-line me-2"></i>
+                                Métriques brutes
+                            </a>
+                        </li>
+                    </ul>
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        <span>Diagnostics</span>
+                    </h6>
+                    <ul class="nav flex-column mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/health">
+                                <i class="bi bi-heart-pulse me-2"></i>
+                                État de santé
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/model-stats">
+                                <i class="bi bi-clipboard-data me-2"></i>
+                                Statistiques du modèle
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Contenu principal -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
+                <!-- Section du tableau de bord principal -->
+                <section id="dashboard-section" class="mb-5">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2">Tableau de bord de monitoring</h1>
+                        <button id="refresh-all" class="btn btn-sm btn-outline-secondary">
+                            <i class="bi bi-arrow-clockwise me-1"></i>
+                            Actualiser
+                        </button>
+                    </div>
+                    
+                    <!-- Statistiques globales -->
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-3">
+                            <div class="stat-card">
+                                <div class="card-header primary-bg">Requêtes totales</div>
+                                <div class="card-body text-center">
+                                    <div id="total-requests" class="card-value">0</div>
+                                    <div class="card-subtitle">Dernières 24 heures</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-card">
+                                <div class="card-header secondary-bg">Prédictions</div>
+                                <div class="card-body text-center">
+                                    <div id="total-predictions" class="card-value">0</div>
+                                    <div class="card-subtitle">Depuis le démarrage</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-card">
+                                <div class="card-header success-bg">Temps moyen</div>
+                                <div class="card-body text-center">
+                                    <div id="avg-execution-time" class="card-value">0 ms</div>
+                                    <div class="card-subtitle">Temps d'exécution</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-card">
+                                <div class="card-header info-bg">Moyenne</div>
+                                <div class="card-body text-center">
+                                    <div id="avg-prediction" class="card-value">$0</div>
+                                    <div class="card-subtitle">Prédiction moyenne</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Graphiques -->
+                    <div class="row g-4">
+                        <div class="col-md-8">
+                            <div class="card stat-card mb-4">
+                                <div class="card-header primary-bg d-flex justify-content-between align-items-center">
+                                    <span>Historique des prédictions</span>
+                                    <button class="btn btn-sm btn-light refresh-btn" onclick="refreshPredictionChart()">
+                                        <i class="bi bi-arrow-clockwise"></i>
+                                    </button>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-container">
+                                        <canvas id="prediction-chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card stat-card mb-4">
+                                <div class="card-header secondary-bg d-flex justify-content-between align-items-center">
+                                    <span>Top 5 Endpoints</span>
+                                    <button class="btn btn-sm btn-light refresh-btn" onclick="refreshEndpointChart()">
+                                        <i class="bi bi-arrow-clockwise"></i>
+                                    </button>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-container">
+                                        <canvas id="endpoint-chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Section de performance -->
+                <section id="performance-section" class="mb-5">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h2>Performance des endpoints</h2>
+                        <button onclick="refreshPerformanceData()" class="btn btn-sm btn-outline-secondary">
+                            <i class="bi bi-arrow-clockwise me-1"></i>
+                            Actualiser
+                        </button>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Endpoint</th>
+                                    <th>Temps moyen (ms)</th>
+                                    <th>95ème percentile (ms)</th>
+                                    <th>Échantillons</th>
+                                    <th>État</th>
+                                </tr>
+                            </thead>
+                            <tbody id="performance-table-body">
+                                <!-- Rempli par JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                <!-- Section des prédictions -->
+                <section id="prediction-section" class="mb-5">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h2>Dernières prédictions</h2>
+                        <button onclick="refreshPredictionData()" class="btn btn-sm btn-outline-secondary">
+                            <i class="bi bi-arrow-clockwise me-1"></i>
+                            Actualiser
+                        </button>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Horodatage</th>
+                                    <th>Âge</th>
+                                    <th>Sexe</th>
+                                    <th>IMC</th>
+                                    <th>Enfants</th>
+                                    <th>Fumeur</th>
+                                    <th>Région</th>
+                                    <th>Prédiction</th>
+                                    <th>Temps (ms)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="prediction-table-body">
+                                <!-- Rempli par JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Charts
+        let predictionChart;
+        let endpointChart;
+        
+        // Global variables for data
+        let summaryData = null;
+        let performanceData = null;
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            setupCharts();
+            refreshAllData();
+            
+            // Refresh button
+            document.getElementById('refresh-all').addEventListener('click', refreshAllData);
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        document.querySelector(href).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+        
+        // Set up charts
+        function setupCharts() {
+            // Prediction chart
+            const predictionCtx = document.getElementById('prediction-chart').getContext('2d');
+            predictionChart = new Chart(predictionCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: 'Prédiction ($)',
+                            data: [],
+                            borderColor: '{{ style.chart_colors[0] }}',
+                            backgroundColor: '{{ style.chart_colors[0] }}'.replace('0.8', '0.1'),
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'Temps d\'exécution (ms)',
+                            data: [],
+                            borderColor: '{{ style.chart_colors[1] }}',
+                            backgroundColor: '{{ style.chart_colors[1] }}'.replace('0.8', '0.1'),
+                            tension: 0.4,
+                            fill: true,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Montant ($)'
+                            }
+                        },
+                        y1: {
+                            position: 'right',
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Temps (ms)'
+                            },
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Date'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false
+                        }
+                    }
+                }
+            });
+            
+            // Endpoint chart
+            const endpointCtx = document.getElementById('endpoint-chart').getContext('2d');
+            endpointChart = new Chart(endpointCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        data: [],
+                        backgroundColor: {{ style.chart_colors|tojson }},
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right'
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Refresh all data
+        function refreshAllData() {
+            showLoading();
+            
+            // Fetch summary data
+            fetchSummaryData()
+                .then(() => fetchPerformanceData())
+                .then(() => fetchPredictionData())
+                .finally(() => hideLoading());
+        }
+        
+        // Fetch summary data from API
+        function fetchSummaryData() {
+            return axios.get('/custom-dashboard/api/summary')
+                .then(response => {
+                    summaryData = response.data;
+                    updateSummaryUI();
+                    updatePredictionChart();
+                    updateEndpointChart();
+                })
+                .catch(error => {
+                    console.error('Error fetching summary data:', error);
+                });
+        }
+        
+        // Fetch performance data from API
+        function fetchPerformanceData() {
+            return axios.get('/custom-dashboard/api/performance')
+                .then(response => {
+                    performanceData = response.data;
+                    updatePerformanceTable();
+                })
+                .catch(error => {
+                    console.error('Error fetching performance data:', error);
+                });
+        }
+        
+        // Fetch prediction data from API
+        function fetchPredictionData() {
+            return axios.get('/model-stats')
+                .then(response => {
+                    updatePredictionTable(response.data.recent_predictions || []);
+                })
+                .catch(error => {
+                    console.error('Error fetching prediction data:', error);
+                });
+        }
+        
+        // Update summary UI elements
+        function updateSummaryUI() {
+            if (!summaryData) return;
+            
+            document.getElementById('total-requests').textContent = summaryData.total_requests;
+            
+            const modelStats = summaryData.model_stats;
+            if (modelStats) {
+                document.getElementById('total-predictions').textContent = modelStats.count;
+                document.getElementById('avg-execution-time').textContent = `${modelStats.avg_execution_time_ms.toFixed(2)} ms`;
+                document.getElementById('avg-prediction').textContent = `$${modelStats.avg_prediction.toFixed(2)}`;
+            }
+        }
+        
+        // Update prediction chart
+        function updatePredictionChart() {
+            if (!summaryData || !predictionChart) return;
+            
+            const modelStats = summaryData.model_stats;
+            if (modelStats && modelStats.recent_predictions && modelStats.recent_predictions.length > 0) {
+                // Get the last 10 predictions and reverse them to show chronologically
+                const predictions = [...modelStats.recent_predictions].reverse();
+                
+                // Update chart data
+                predictionChart.data.labels = predictions.map(p => {
+                    const date = new Date(p.timestamp);
+                    return date.toLocaleTimeString();
+                });
+                predictionChart.data.datasets[0].data = predictions.map(p => p.prediction);
+                predictionChart.data.datasets[1].data = predictions.map(p => p.execution_time_ms);
+                
+                predictionChart.update();
+            }
+        }
+        
+        // Update endpoint chart
+        function updateEndpointChart() {
+            if (!summaryData || !endpointChart) return;
+            
+            const endpoints = summaryData.top_endpoints || [];
+            
+            // Update chart data
+            endpointChart.data.labels = endpoints.map(e => e.name);
+            endpointChart.data.datasets[0].data = endpoints.map(e => e.count);
+            // Update background colors
+            endpointChart.data.datasets[0].backgroundColor = endpoints.map(e => e.color);
+            
+            endpointChart.update();
+        }
+        
+        // Update performance table
+        function updatePerformanceTable() {
+            if (!performanceData) return;
+            
+            const tableBody = document.getElementById('performance-table-body');
+            tableBody.innerHTML = '';
+            
+            performanceData.endpoints.forEach(endpoint => {
+                const row = document.createElement('tr');
+                
+                // Determine status based on latency
+                let status = 'success';
+                if (endpoint.avg_latency > 500) {
+                    status = 'danger';
+                } else if (endpoint.avg_latency > 200) {
+                    status = 'warning';
+                }
+                
+                row.innerHTML = `
+                    <td>${endpoint.name}</td>
+                    <td>${endpoint.avg_latency.toFixed(2)}</td>
+                    <td>${endpoint.p95_latency.toFixed(2)}</td>
+                    <td>${endpoint.samples}</td>
+                    <td><span class="badge bg-${status}">${status.toUpperCase()}</span></td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+        }
+        
+        // Update prediction table
+        function updatePredictionTable(predictions) {
+            const tableBody = document.getElementById('prediction-table-body');
+            tableBody.innerHTML = '';
+            
+            // If no predictions, show message
+            if (!predictions || predictions.length === 0) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td colspan="9" class="text-center">Aucune prédiction effectuée</td>
+                `;
+                tableBody.appendChild(row);
+                return;
+            }
+            
+            // Otherwise, add each prediction
+            predictions.forEach(prediction => {
+                const row = document.createElement('tr');
+                
+                // Format date
+                const date = new Date(prediction.timestamp);
+                const formattedDate = date.toLocaleString();
+                
+                row.innerHTML = `
+                    <td>${formattedDate}</td>
+                    <td>${prediction.age}</td>
+                    <td>${prediction.sex}</td>
+                    <td>${prediction.bmi.toFixed(1)}</td>
+                    <td>${prediction.children}</td>
+                    <td>${prediction.smoker}</td>
+                    <td>${prediction.region}</td>
+                    <td>$${prediction.prediction.toFixed(2)}</td>
+                    <td>${prediction.execution_time_ms.toFixed(2)}</td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+        }
+        
+        // Refresh specific charts/tables
+        function refreshPredictionChart() {
+            fetchSummaryData()
+                .then(updatePredictionChart);
+        }
+        
+        function refreshEndpointChart() {
+            fetchSummaryData()
+                .then(updateEndpointChart);
+        }
+        
+        function refreshPerformanceData() {
+            fetchPerformanceData();
+        }
+        
+        function refreshPredictionData() {
+            fetchPredictionData();
+        }
+        
+        // Loading indicator
+        function showLoading() {
+            document.getElementById('loading').classList.remove('d-none');
+        }
+        
+        function hideLoading() {
+            document.getElementById('loading').classList.add('d-none');
+        }
+    </script>
+</body>
+</html> 

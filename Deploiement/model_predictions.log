@@ -1,0 +1,255 @@
+2025-04-21 03:13:57,883 - predictor - INFO - Modèle et scaler chargés avec succès depuis models\xgboost_model.pkl et models\scaler.pkl
+2025-04-21 03:14:08,695 - apscheduler.scheduler - INFO - Scheduler started
+2025-04-21 03:14:08,846 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-21 03:14:08,847 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-21 03:14:08,873 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-21 03:14:09,931 - predictor - INFO - Modèle et scaler chargés avec succès depuis models\xgboost_model.pkl et models\scaler.pkl
+2025-04-21 03:14:10,252 - apscheduler.scheduler - INFO - Scheduler started
+2025-04-21 03:14:10,269 - werkzeug - WARNING -  * Debugger is active!
+2025-04-21 03:14:10,273 - werkzeug - INFO -  * Debugger PIN: 127-345-204
+2025-04-21 03:14:37,469 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:14:37] "GET / HTTP/1.1" 200 -
+2025-04-21 03:14:37,772 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:14:37] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-04-21 03:14:37,779 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:14:37] "GET /static/js/script.js HTTP/1.1" 200 -
+2025-04-21 03:14:37,833 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:14:37] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-21 03:14:58,763 - predictor - INFO - Demande de prédiction: age=20, sex=male, bmi=20.0, children=0, smoker=no, region=northeast
+2025-04-21 03:14:58,776 - predictor - ERROR - Erreur lors de la prédiction: 'XGBModel' object has no attribute 'gpu_id'
+2025-04-21 03:14:58,789 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:14:58] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+2025-04-21 03:15:01,989 - predictor - INFO - Demande de prédiction: age=20, sex=male, bmi=20.0, children=0, smoker=no, region=northeast
+2025-04-21 03:15:02,001 - predictor - ERROR - Erreur lors de la prédiction: 'XGBModel' object has no attribute 'gpu_id'
+2025-04-21 03:15:02,003 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:15:02] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+2025-04-21 03:19:18,486 - predictor - INFO - Modèle et scaler chargés avec succès depuis models\xgboost_model.pkl et models\scaler.pkl
+2025-04-21 03:19:23,352 - apscheduler.scheduler - INFO - Scheduler started
+2025-04-21 03:19:23,486 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-21 03:19:23,487 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-21 03:19:23,511 - werkzeug - INFO -  * Restarting with stat
+2025-04-21 03:19:24,516 - predictor - INFO - Modèle et scaler chargés avec succès depuis models\xgboost_model.pkl et models\scaler.pkl
+2025-04-21 03:19:24,769 - apscheduler.scheduler - INFO - Scheduler started
+2025-04-21 03:19:24,787 - werkzeug - WARNING -  * Debugger is active!
+2025-04-21 03:19:24,792 - werkzeug - INFO -  * Debugger PIN: 139-630-247
+2025-04-21 03:19:36,010 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:19:36] "GET / HTTP/1.1" 200 -
+2025-04-21 03:19:36,109 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:19:36] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-21 03:19:36,110 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:19:36] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+2025-04-21 03:19:52,773 - predictor - INFO - Demande de prédiction: age=20, sex=male, bmi=20.0, children=0, smoker=no, region=northeast
+2025-04-21 03:19:52,783 - predictor - ERROR - Erreur lors de la prédiction: 'XGBModel' object has no attribute 'gpu_id'
+2025-04-21 03:19:52,784 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:19:52] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+2025-04-21 03:20:59,852 - predictor - INFO - Modèle et scaler chargés avec succès depuis models\xgboost_model.pkl et models\scaler.pkl
+2025-04-21 03:21:00,151 - apscheduler.scheduler - INFO - Scheduler started
+2025-04-21 03:21:00,174 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-21 03:21:00,174 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-21 03:21:00,175 - werkzeug - INFO -  * Restarting with stat
+2025-04-21 03:21:01,307 - predictor - INFO - Modèle et scaler chargés avec succès depuis models\xgboost_model.pkl et models\scaler.pkl
+2025-04-21 03:21:01,559 - apscheduler.scheduler - INFO - Scheduler started
+2025-04-21 03:21:01,576 - werkzeug - WARNING -  * Debugger is active!
+2025-04-21 03:21:01,581 - werkzeug - INFO -  * Debugger PIN: 139-630-247
+2025-04-21 03:21:16,840 - werkzeug - INFO -  * Detected change in 'C:\\Users\\rayen\\Desktop\\Final Project GMC Preparation\\Deploiement\\repair_model.py', reloading
+2025-04-21 03:21:16,841 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2025-04-21 03:21:17,014 - werkzeug - INFO -  * Restarting with stat
+2025-04-21 03:21:18,041 - predictor - INFO - Modèle et scaler chargés avec succès depuis models\xgboost_model.pkl et models\scaler.pkl
+2025-04-21 03:21:18,296 - apscheduler.scheduler - INFO - Scheduler started
+2025-04-21 03:21:18,313 - werkzeug - WARNING -  * Debugger is active!
+2025-04-21 03:21:18,317 - werkzeug - INFO -  * Debugger PIN: 139-630-247
+2025-04-21 03:21:22,468 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:21:22] "GET / HTTP/1.1" 200 -
+2025-04-21 03:21:22,591 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:21:22] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+2025-04-21 03:21:22,591 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:21:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-21 03:21:33,306 - predictor - INFO - Demande de prédiction: age=20, sex=male, bmi=20.0, children=0, smoker=no, region=northwest
+2025-04-21 03:21:33,333 - predictor - INFO - Prédiction réussie: 2334.65$ (temps: 27.12ms)
+2025-04-21 03:21:33,336 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:21:33] "POST /predict HTTP/1.1" 200 -
+2025-04-21 03:23:36,481 - predictor - INFO - Modèle et scaler chargés avec succès depuis models\xgboost_model.pkl et models\scaler.pkl
+2025-04-21 03:23:36,791 - apscheduler.scheduler - INFO - Scheduler started
+2025-04-21 03:23:36,814 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-21 03:23:36,815 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-21 03:23:36,820 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-21 03:23:37,931 - predictor - INFO - Modèle et scaler chargés avec succès depuis models\xgboost_model.pkl et models\scaler.pkl
+2025-04-21 03:23:38,248 - apscheduler.scheduler - INFO - Scheduler started
+2025-04-21 03:23:38,268 - werkzeug - WARNING -  * Debugger is active!
+2025-04-21 03:23:38,274 - werkzeug - INFO -  * Debugger PIN: 127-345-204
+2025-04-21 03:23:42,781 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:23:42] "GET / HTTP/1.1" 200 -
+2025-04-21 03:23:42,876 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:23:42] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+2025-04-21 03:23:42,877 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:23:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-21 03:23:54,781 - predictor - INFO - Demande de prédiction: age=20, sex=male, bmi=20.0, children=0, smoker=no, region=northeast
+2025-04-21 03:23:54,817 - predictor - INFO - Prédiction réussie: 1745.97$ (temps: 36.32ms)
+2025-04-21 03:23:54,819 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:23:54] "POST /predict HTTP/1.1" 200 -
+2025-04-21 03:23:59,355 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:23:59] "[32mGET /dashboard HTTP/1.1[0m" 308 -
+2025-04-21 03:23:59,363 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:23:59] "[32mGET /dashboard/ HTTP/1.1[0m" 302 -
+2025-04-21 03:23:59,389 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:23:59] "GET /dashboard/login HTTP/1.1" 200 -
+2025-04-21 03:23:59,432 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:23:59] "GET /dashboard/static/img/header.png HTTP/1.1" 200 -
+2025-04-21 03:23:59,444 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:23:59] "GET /dashboard/static/css/app.css HTTP/1.1" 200 -
+2025-04-21 03:23:59,518 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:23:59] "GET /dashboard/static/fonts/fa-solid-900.woff2 HTTP/1.1" 200 -
+2025-04-21 03:24:00,250 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:00] "GET /dashboard/static/js/app.js HTTP/1.1" 200 -
+2025-04-21 03:24:00,930 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:00] "GET /dashboard/static/pages/overview.html HTTP/1.1" 200 -
+2025-04-21 03:24:00,931 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:00] "GET /dashboard/static/img/favicon.ico HTTP/1.1" 200 -
+2025-04-21 03:24:08,283 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:08] "[32mPOST /dashboard/login HTTP/1.1[0m" 302 -
+2025-04-21 03:24:08,294 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:08] "GET /dashboard/ HTTP/1.1" 200 -
+2025-04-21 03:24:08,310 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:08] "[36mGET /dashboard/static/css/app.css HTTP/1.1[0m" 304 -
+2025-04-21 03:24:08,312 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:08] "[36mGET /dashboard/static/js/app.js HTTP/1.1[0m" 304 -
+2025-04-21 03:24:08,364 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:08] "GET /dashboard/static/elements/modal.html HTTP/1.1" 200 -
+2025-04-21 03:24:08,365 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:08] "[36mGET /dashboard/static/pages/overview.html HTTP/1.1[0m" 304 -
+2025-04-21 03:24:08,383 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:08] "GET /dashboard/static/elements/menu.html HTTP/1.1" 200 -
+2025-04-21 03:24:08,386 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:08] "GET /dashboard/api/custom_graphs HTTP/1.1" 200 -
+2025-04-21 03:24:08,416 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:08] "GET /dashboard/api/overview HTTP/1.1" 200 -
+2025-04-21 03:24:08,428 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:08] "GET /dashboard/static/elements/monitorLevel.html HTTP/1.1" 200 -
+2025-04-21 03:24:08,647 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:08] "GET /dashboard/api/deploy_details HTTP/1.1" 200 -
+2025-04-21 03:24:19,749 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:19] "GET /dashboard/static/pages/plotly_graph.html HTTP/1.1" 200 -
+2025-04-21 03:24:19,771 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:19] "GET /dashboard/static/elements/endpointDetails.html HTTP/1.1" 200 -
+2025-04-21 03:24:19,775 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:19] "GET /dashboard/api/hourly_load/2025-04-07/2025-04-21 HTTP/1.1" 200 -
+2025-04-21 03:24:23,119 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:23] "GET /dashboard/api/deploy_details HTTP/1.1" 200 -
+2025-04-21 03:24:23,127 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:23] "GET /dashboard/api/overview HTTP/1.1" 200 -
+2025-04-21 03:24:33,404 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:33] "GET /dashboard/api/hourly_load/2025-04-07/2025-04-21/2 HTTP/1.1" 200 -
+2025-04-21 03:24:33,406 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:33] "GET /dashboard/api/endpoint_info/2 HTTP/1.1" 200 -
+2025-04-21 03:24:44,360 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:44] "GET /dashboard/api/users/2 HTTP/1.1" 200 -
+2025-04-21 03:24:44,368 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:44] "GET /dashboard/api/endpoint_info/2 HTTP/1.1" 200 -
+2025-04-21 03:24:44,368 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:44] "GET /dashboard/api/versions/2 HTTP/1.1" 200 -
+2025-04-21 03:24:44,380 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:44] "POST /dashboard/api/version_user/2 HTTP/1.1" 200 -
+2025-04-21 03:24:45,226 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:45] "GET /dashboard/api/ip/2 HTTP/1.1" 200 -
+2025-04-21 03:24:45,239 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:45] "GET /dashboard/api/endpoint_info/2 HTTP/1.1" 200 -
+2025-04-21 03:24:45,241 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:45] "GET /dashboard/api/versions/2 HTTP/1.1" 200 -
+2025-04-21 03:24:45,254 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:45] "POST /dashboard/api/version_ip/2 HTTP/1.1" 200 -
+2025-04-21 03:24:45,809 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:45] "GET /dashboard/api/endpoint_info/2 HTTP/1.1" 200 -
+2025-04-21 03:24:45,811 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:45] "GET /dashboard/api/versions/2 HTTP/1.1" 200 -
+2025-04-21 03:24:45,826 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:45] "POST /dashboard/api/endpoint_versions/2 HTTP/1.1" 200 -
+2025-04-21 03:24:46,920 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:46] "GET /dashboard/static/pages/profiler.html HTTP/1.1" 200 -
+2025-04-21 03:24:46,932 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:46] "GET /dashboard/static/elements/pagination.html HTTP/1.1" 200 -
+2025-04-21 03:24:46,934 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:46] "GET /dashboard/api/num_profiled/2 HTTP/1.1" 200 -
+2025-04-21 03:24:46,938 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:46] "GET /dashboard/api/endpoint_info/2 HTTP/1.1" 200 -
+2025-04-21 03:24:46,958 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:24:46] "GET /dashboard/api/profiler_table/2/0/5 HTTP/1.1" 200 -
+2025-04-21 03:25:06,531 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:25:06] "GET /dashboard/static/pages/grouped_profiler.html HTTP/1.1" 200 -
+2025-04-21 03:25:06,556 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:25:06] "GET /dashboard/api/endpoint_info/2 HTTP/1.1" 200 -
+2025-04-21 03:25:06,586 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:25:06] "GET /dashboard/api/grouped_profiler/2 HTTP/1.1" 200 -
+2025-04-21 03:25:11,788 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:25:11] "GET /dashboard/static/pages/outliers.html HTTP/1.1" 200 -
+2025-04-21 03:25:11,805 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:25:11] "GET /dashboard/api/num_outliers/2 HTTP/1.1" 200 -
+2025-04-21 03:25:11,820 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:25:11] "GET /dashboard/api/endpoint_info/2 HTTP/1.1" 200 -
+2025-04-21 03:25:11,824 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:25:11] "GET /dashboard/api/outlier_graph/2 HTTP/1.1" 200 -
+2025-04-21 03:25:11,845 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:25:11] "GET /dashboard/api/outlier_table/2/0/5 HTTP/1.1" 200 -
+2025-04-21 03:25:15,997 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:25:15] "GET /dashboard/static/pages/status_code_distribution.html HTTP/1.1" 200 -
+2025-04-21 03:25:16,026 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:25:16] "GET /dashboard/api/endpoint_status_code_summary/2 HTTP/1.1" 200 -
+2025-04-21 03:25:16,027 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:25:16] "GET /dashboard/api/endpoint_info/2 HTTP/1.1" 200 -
+2025-04-21 03:25:18,000 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:25:18] "GET /dashboard/static/pages/configuration.html HTTP/1.1" 200 -
+2025-04-21 03:25:18,014 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:25:18] "GET /dashboard/api/users HTTP/1.1" 200 -
+2025-04-21 03:25:18,019 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:25:18] "GET /dashboard/api/deploy_config HTTP/1.1" 200 -
+2025-04-21 03:25:18,038 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:25:18] "GET /dashboard/api/deploy_details HTTP/1.1" 200 -
+2025-04-21 03:25:23,314 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:25:23] "GET /dashboard/api/deploy_details HTTP/1.1" 200 -
+2025-04-21 03:25:23,327 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:25:23] "GET /dashboard/api/overview HTTP/1.1" 200 -
+2025-04-21 03:25:44,639 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:25:44] "GET /metrics HTTP/1.1" 200 -
+2025-04-21 03:25:57,664 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:25:57] "GET /metrics HTTP/1.1" 200 -
+2025-04-21 03:26:12,835 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:26:12] "GET /health HTTP/1.1" 200 -
+2025-04-21 03:27:46,576 - werkzeug - INFO -  * Detected change in 'C:\\Users\\rayen\\Desktop\\Final Project GMC Preparation\\Deploiement\\custom_dashboard.py', reloading
+2025-04-21 03:27:46,576 - werkzeug - INFO -  * Detected change in 'C:\\Users\\rayen\\Desktop\\Final Project GMC Preparation\\Deploiement\\custom_dashboard.py', reloading
+2025-04-21 03:27:47,102 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2025-04-21 03:27:47,351 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-21 03:27:48,452 - predictor - INFO - Modèle et scaler chargés avec succès depuis models\xgboost_model.pkl et models\scaler.pkl
+2025-04-21 03:27:48,661 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2025-04-21 03:30:37,968 - predictor - INFO - Modèle et scaler chargés avec succès depuis models\xgboost_model.pkl et models\scaler.pkl
+2025-04-21 03:31:08,079 - predictor - INFO - Modèle et scaler chargés avec succès depuis models\xgboost_model.pkl et models\scaler.pkl
+2025-04-21 03:31:08,336 - apscheduler.scheduler - INFO - Scheduler started
+2025-04-21 03:31:08,353 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2025-04-21 03:31:49,068 - predictor - INFO - Modèle et scaler chargés avec succès depuis models\xgboost_model.pkl et models\scaler.pkl
+2025-04-21 03:31:49,389 - apscheduler.scheduler - INFO - Scheduler started
+2025-04-21 03:31:49,414 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2025-04-21 03:32:31,436 - predictor - INFO - Modèle et scaler chargés avec succès depuis models\xgboost_model.pkl et models\scaler.pkl
+2025-04-21 03:32:31,728 - apscheduler.scheduler - INFO - Scheduler started
+2025-04-21 03:32:31,754 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-21 03:32:31,754 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-21 03:32:31,756 - werkzeug - INFO -  * Restarting with stat
+2025-04-21 03:32:32,819 - predictor - INFO - Modèle et scaler chargés avec succès depuis models\xgboost_model.pkl et models\scaler.pkl
+2025-04-21 03:32:33,094 - apscheduler.scheduler - INFO - Scheduler started
+2025-04-21 03:32:33,112 - werkzeug - WARNING -  * Debugger is active!
+2025-04-21 03:32:33,117 - werkzeug - INFO -  * Debugger PIN: 139-630-247
+2025-04-21 03:32:55,620 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:32:55] "[32mGET /dashboard/overview HTTP/1.1[0m" 302 -
+2025-04-21 03:32:55,630 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:32:55] "GET /dashboard/login HTTP/1.1" 200 -
+2025-04-21 03:32:55,775 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:32:55] "GET /dashboard/static/css/app.css HTTP/1.1" 200 -
+2025-04-21 03:32:55,778 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:32:55] "GET /dashboard/static/js/app.js HTTP/1.1" 200 -
+2025-04-21 03:32:55,796 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:32:55] "GET /dashboard/static/img/header.png HTTP/1.1" 200 -
+2025-04-21 03:32:55,800 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:32:55] "GET /dashboard/static/fonts/fa-solid-900.woff2 HTTP/1.1" 200 -
+2025-04-21 03:32:56,571 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:32:56] "GET /dashboard/static/pages/overview.html HTTP/1.1" 200 -
+2025-04-21 03:32:56,582 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:32:56] "GET /dashboard/static/img/favicon.ico HTTP/1.1" 200 -
+2025-04-21 03:33:03,322 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:03] "[32mPOST /dashboard/login HTTP/1.1[0m" 302 -
+2025-04-21 03:33:03,327 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:03] "GET /dashboard/ HTTP/1.1" 200 -
+2025-04-21 03:33:03,336 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:03] "[36mGET /dashboard/static/css/app.css HTTP/1.1[0m" 304 -
+2025-04-21 03:33:03,339 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:03] "[36mGET /dashboard/static/js/app.js HTTP/1.1[0m" 304 -
+2025-04-21 03:33:03,402 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:03] "GET /dashboard/static/elements/menu.html HTTP/1.1" 200 -
+2025-04-21 03:33:03,405 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:03] "GET /dashboard/static/elements/modal.html HTTP/1.1" 200 -
+2025-04-21 03:33:03,406 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:03] "[36mGET /dashboard/static/pages/overview.html HTTP/1.1[0m" 304 -
+2025-04-21 03:33:03,416 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:03] "GET /dashboard/api/custom_graphs HTTP/1.1" 200 -
+2025-04-21 03:33:03,447 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:03] "GET /dashboard/api/overview HTTP/1.1" 200 -
+2025-04-21 03:33:03,461 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:03] "GET /dashboard/static/elements/monitorLevel.html HTTP/1.1" 200 -
+2025-04-21 03:33:03,489 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:03] "[35m[1mGET /dashboard/api/deploy_details HTTP/1.1[0m" 500 -
+2025-04-21 03:33:13,539 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:13] "POST /dashboard/api/set_rule HTTP/1.1" 200 -
+2025-04-21 03:33:14,252 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:14] "POST /dashboard/api/set_rule HTTP/1.1" 200 -
+2025-04-21 03:33:23,173 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:23] "GET /dashboard/static/pages/plotly_graph.html HTTP/1.1" 200 -
+2025-04-21 03:33:23,197 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:23] "GET /dashboard/api/hourly_load/2025-04-07/2025-04-21 HTTP/1.1" 200 -
+2025-04-21 03:33:23,198 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:23] "GET /dashboard/static/elements/endpointDetails.html HTTP/1.1" 200 -
+2025-04-21 03:33:29,696 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:29] "GET /dashboard/api/versions HTTP/1.1" 200 -
+2025-04-21 03:33:29,703 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:29] "GET /dashboard/api/endpoints_hits HTTP/1.1" 200 -
+2025-04-21 03:33:29,715 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:29] "POST /dashboard/api/multi_version HTTP/1.1" 200 -
+2025-04-21 03:33:33,632 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:33] "GET /dashboard/api/requests/2025-04-11/2025-04-21 HTTP/1.1" 200 -
+2025-04-21 03:33:40,502 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:40] "GET /dashboard/api/endpoints_hits HTTP/1.1" 200 -
+2025-04-21 03:33:40,515 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:40] "POST /dashboard/api/api_performance HTTP/1.1" 200 -
+2025-04-21 03:33:41,746 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:41] "GET /dashboard/static/pages/reporting.html HTTP/1.1" 200 -
+2025-04-21 03:33:43,438 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:43] "GET /dashboard/api/versions HTTP/1.1" 200 -
+2025-04-21 03:33:46,185 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:46] "GET /dashboard/static/pages/configuration.html HTTP/1.1" 200 -
+2025-04-21 03:33:46,201 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:46] "GET /dashboard/api/users HTTP/1.1" 200 -
+2025-04-21 03:33:46,208 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:46] "GET /dashboard/api/deploy_config HTTP/1.1" 200 -
+2025-04-21 03:33:46,241 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:46] "[35m[1mGET /dashboard/api/deploy_details HTTP/1.1[0m" 500 -
+2025-04-21 03:33:54,451 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:54] "GET /dashboard/api/overview HTTP/1.1" 200 -
+2025-04-21 03:33:54,476 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:54] "[35m[1mGET /dashboard/api/deploy_details HTTP/1.1[0m" 500 -
+2025-04-21 03:33:58,309 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:58] "[32mGET /dashboard/logout HTTP/1.1[0m" 302 -
+2025-04-21 03:33:58,317 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:58] "GET /dashboard/login HTTP/1.1" 200 -
+2025-04-21 03:33:58,328 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:58] "[36mGET /dashboard/static/css/app.css HTTP/1.1[0m" 304 -
+2025-04-21 03:33:58,331 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:58] "[36mGET /dashboard/static/img/header.png HTTP/1.1[0m" 304 -
+2025-04-21 03:33:58,335 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:58] "[36mGET /dashboard/static/js/app.js HTTP/1.1[0m" 304 -
+2025-04-21 03:33:58,539 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:33:58] "[36mGET /dashboard/static/pages/overview.html HTTP/1.1[0m" 304 -
+2025-04-21 03:34:59,851 - werkzeug - INFO -  * Detected change in 'C:\\Users\\rayen\\Desktop\\Final Project GMC Preparation\\Deploiement\\custom_dashboard.py', reloading
+2025-04-21 03:34:59,851 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2025-04-21 03:35:00,107 - werkzeug - INFO -  * Restarting with stat
+2025-04-21 03:35:01,279 - predictor - INFO - Modèle et scaler chargés avec succès depuis models\xgboost_model.pkl et models\scaler.pkl
+2025-04-21 03:35:01,589 - apscheduler.scheduler - INFO - Scheduler started
+2025-04-21 03:35:01,617 - werkzeug - WARNING -  * Debugger is active!
+2025-04-21 03:35:01,621 - werkzeug - INFO -  * Debugger PIN: 139-630-247
+2025-04-21 03:35:06,089 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:06] "[32mGET /dashboard/overview HTTP/1.1[0m" 302 -
+2025-04-21 03:35:06,097 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:06] "GET /dashboard/login HTTP/1.1" 200 -
+2025-04-21 03:35:06,237 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:06] "[36mGET /dashboard/static/js/app.js HTTP/1.1[0m" 304 -
+2025-04-21 03:35:06,240 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:06] "[36mGET /dashboard/static/css/app.css HTTP/1.1[0m" 304 -
+2025-04-21 03:35:06,241 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:06] "[36mGET /dashboard/static/img/header.png HTTP/1.1[0m" 304 -
+2025-04-21 03:35:06,273 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:06] "[36mGET /dashboard/static/pages/overview.html HTTP/1.1[0m" 304 -
+2025-04-21 03:35:06,278 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:06] "[36mGET /dashboard/static/img/favicon.ico HTTP/1.1[0m" 304 -
+2025-04-21 03:35:07,338 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:07] "[32mPOST /dashboard/login HTTP/1.1[0m" 302 -
+2025-04-21 03:35:07,342 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:07] "GET /dashboard/ HTTP/1.1" 200 -
+2025-04-21 03:35:07,349 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:07] "[36mGET /dashboard/static/css/app.css HTTP/1.1[0m" 304 -
+2025-04-21 03:35:07,350 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:07] "[36mGET /dashboard/static/js/app.js HTTP/1.1[0m" 304 -
+2025-04-21 03:35:07,374 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:07] "[36mGET /dashboard/static/elements/menu.html HTTP/1.1[0m" 304 -
+2025-04-21 03:35:07,375 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:07] "[36mGET /dashboard/static/elements/modal.html HTTP/1.1[0m" 304 -
+2025-04-21 03:35:07,377 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:07] "[36mGET /dashboard/static/pages/overview.html HTTP/1.1[0m" 304 -
+2025-04-21 03:35:07,388 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:07] "GET /dashboard/api/custom_graphs HTTP/1.1" 200 -
+2025-04-21 03:35:07,411 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:07] "GET /dashboard/api/overview HTTP/1.1" 200 -
+2025-04-21 03:35:07,418 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:07] "[36mGET /dashboard/static/elements/monitorLevel.html HTTP/1.1[0m" 304 -
+2025-04-21 03:35:07,421 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:07] "[35m[1mGET /dashboard/api/deploy_details HTTP/1.1[0m" 500 -
+2025-04-21 03:35:08,791 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:08] "GET /dashboard/overview HTTP/1.1" 200 -
+2025-04-21 03:35:08,805 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:08] "[36mGET /dashboard/static/css/app.css HTTP/1.1[0m" 304 -
+2025-04-21 03:35:08,809 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:08] "[36mGET /dashboard/static/js/app.js HTTP/1.1[0m" 304 -
+2025-04-21 03:35:08,838 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:08] "[36mGET /dashboard/static/elements/menu.html HTTP/1.1[0m" 304 -
+2025-04-21 03:35:08,848 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:08] "[36mGET /dashboard/static/elements/modal.html HTTP/1.1[0m" 304 -
+2025-04-21 03:35:08,852 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:08] "[36mGET /dashboard/static/pages/overview.html HTTP/1.1[0m" 304 -
+2025-04-21 03:35:08,860 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:08] "GET /dashboard/api/custom_graphs HTTP/1.1" 200 -
+2025-04-21 03:35:08,862 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:08] "[36mGET /dashboard/static/img/favicon.ico HTTP/1.1[0m" 304 -
+2025-04-21 03:35:08,888 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:08] "GET /dashboard/api/overview HTTP/1.1" 200 -
+2025-04-21 03:35:08,898 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:08] "[36mGET /dashboard/static/elements/monitorLevel.html HTTP/1.1[0m" 304 -
+2025-04-21 03:35:08,910 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:08] "[35m[1mGET /dashboard/api/deploy_details HTTP/1.1[0m" 500 -
+2025-04-21 03:35:12,041 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:12] "[36mGET /dashboard/static/pages/plotly_graph.html HTTP/1.1[0m" 304 -
+2025-04-21 03:35:12,055 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:12] "[36mGET /dashboard/static/elements/endpointDetails.html HTTP/1.1[0m" 304 -
+2025-04-21 03:35:12,057 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:12] "GET /dashboard/api/hourly_load/2025-04-07/2025-04-21 HTTP/1.1" 200 -
+2025-04-21 03:35:13,168 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:13] "GET /dashboard/api/overview HTTP/1.1" 200 -
+2025-04-21 03:35:13,186 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:13] "[35m[1mGET /dashboard/api/deploy_details HTTP/1.1[0m" 500 -
+2025-04-21 03:35:16,636 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:16] "GET /dashboard/api/requests/2025-04-11/2025-04-21 HTTP/1.1" 200 -
+2025-04-21 03:35:17,224 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:17] "GET /dashboard/api/endpoints_hits HTTP/1.1" 200 -
+2025-04-21 03:35:17,240 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:17] "POST /dashboard/api/api_performance HTTP/1.1" 200 -
+2025-04-21 03:35:17,624 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:17] "GET /dashboard/api/versions HTTP/1.1" 200 -
+2025-04-21 03:35:17,625 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:17] "GET /dashboard/api/endpoints_hits HTTP/1.1" 200 -
+2025-04-21 03:35:17,631 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:17] "POST /dashboard/api/multi_version HTTP/1.1" 200 -
+2025-04-21 03:35:19,951 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:19] "GET /metrics HTTP/1.1" 200 -
+2025-04-21 03:35:20,642 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:20] "GET /metrics HTTP/1.1" 200 -
+2025-04-21 03:35:22,083 - werkzeug - INFO - 127.0.0.1 - - [21/Apr/2025 03:35:22] "GET /health HTTP/1.1" 200 -
