@@ -102,6 +102,6 @@ Ce projet peut être déployé sur n'importe quelle plateforme supportant Python
 
 ## Auteur
 
-[Nom de l'auteur]
+Rayen HIZAOUI
 
 
